@@ -10,7 +10,7 @@
   <body>
     <main>
       <header>
-        <nav class="nav container">
+        <div class="nav">
           <h2 class="nav_logo"><a href="#">Zenteiq</a></h2>
 
           <ul class="menu_items">
@@ -21,7 +21,7 @@
             <li><a href="#" class="nav_link">Notifications</a></li>
           </ul>
           <img src="images/bars.svg" alt="timesicon" id="menu_toggle" />
-        </nav>
+        </div>
       </header>
 
       <section class="hero">
@@ -299,6 +299,18 @@
           faq.classList.toggle("active");
         })
       })
+      var prevScrollpos = window.pageYOffset;
+      console.log(window.pageYOffset)
+      window.onscroll = function() {
+        // console.log(window.pageYOffset)
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+          document.querySelector(".nav").style.top = "0";
+        } else {
+          document.querySelector(".nav").style.top = "-100px";
+        }
+        prevScrollpos = currentScrollPos;
+      }
     </script>
   </body>
 </html>
